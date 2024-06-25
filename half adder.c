@@ -8,8 +8,8 @@ endmodule
 
 
 testbench:
-module halft;
 
+module halft;
 reg a,b;
 wire s,c;
 half halft(a,b,s,c);
