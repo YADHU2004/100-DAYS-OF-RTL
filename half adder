@@ -1,0 +1,24 @@
+design:
+module half(a,b,s,c);
+input a,b;
+output s,c;
+assign s=a^b;
+assign c=a&b;
+endmodule
+
+
+testbench:
+module halft;
+
+reg a,b;
+wire s,c;
+half halft(a,b,s,c);
+initial begin
+    #100 a=1'b0;b=1'b0;
+    #100 a=1'b0;b=1'b1;
+    #100 a=1'b1;b=1'b0;
+    #100 a=1'b1;b=1'b1;
+    #100;
+    end
+ 
+endmodule
