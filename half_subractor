@@ -1,0 +1,23 @@
+design:
+module sub(a,b,d,bo);
+input a,b;
+output d,bo;
+assign d=a^b;
+assign bo=(!a)&b;
+endmodule
+
+testbench:
+
+module subt;
+reg a,b;
+wire d,bo;
+sub dut(a,b,d,bo);
+ initial begin
+ a=1'b0;b=1'b0;
+ #100 a=1'b0;b=1'b1;
+ #100 a=1'b1;b=1'b0;
+ #100 a=1'b1;b=1'b1;
+ #100;
+ end
+    
+endmodule
