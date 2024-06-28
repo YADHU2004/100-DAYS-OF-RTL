@@ -1,0 +1,26 @@
+design:
+module fulladd(a,b,cin,s,c );
+input a,b,cin;
+output s,c;
+assign s=a^b^cin;
+assign c=(a&b)|(b&cin)|(cin&a);
+endmodule
+
+
+testbench:
+
+module fulladdt;
+reg a,b,cin;
+wire s,c;
+fulladd fulladdt(a,b,cin,s,c);
+initial begin
+ a=1'b0;b=1'b0;cin=1'b0;  //first line of input should be given without delay to avoid garbage value in first cycle;follow for all 
+ #100 a=1'b0;b=1'b0;cin=1'b1;
+ #100 a=1'b0;b=1'b1;cin=1'b0;
+ #100 a=1'b0;b=1'b1;cin=1'b1;
+ #100 a=1'b1;b=1'b0;cin=1'b0;
+ #100 a=1'b1;b=1'b0;cin=1'b1;
+ #100 a=1'b1;b=1'b1;cin=1'b0;
+ #100 a=1'b1;b=1'b1;cin=1'b1;
+ end
+endmodule
