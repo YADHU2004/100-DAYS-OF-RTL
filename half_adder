@@ -14,7 +14,7 @@ reg a,b;
 wire s,c;
 half halft(a,b,s,c);
 initial begin
-    a=1'b0;b=1'b0;
+    a=1'b0;b=1'b0;//first line of input should be given without delay to avoid garbage value in first cycle;follow for all
     #100 a=1'b0;b=1'b1;
     #100 a=1'b1;b=1'b0;
     #100 a=1'b1;b=1'b1;
