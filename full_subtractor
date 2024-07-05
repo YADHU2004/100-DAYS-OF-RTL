@@ -1,0 +1,28 @@
+design:
+module fullsub(a,b,bin,d,bout);
+input a,b,bin;
+output d,bout;
+assign d=a^b^bin;
+assign bout=(~a&b)| (~a&bin)|(b&bin);
+endmodule
+
+
+testbench:
+
+module fullsubt;
+reg a,b,bin;
+wire d,bout;
+fullsub fullsubt(a,b,bin,d,bout);
+initial begin
+a=1'b0;b=1'b0;bin=1'b0;
+#100 a=1'b0;b=1'b0;bin=1'b1;
+#100 a=1'b0;b=1'b1;bin=1'b0;
+#100 a=1'b0;b=1'b1;bin=1'b1;
+#100 a=1'b1;b=1'b0;bin=1'b0;
+#100 a=1'b1;b=1'b0;bin=1'b1;
+#100 a=1'b1;b=1'b1;bin=1'b0;
+#100 a=1'b1;b=1'b1;bin=1'b1;
+end
+endmodule
+
+
